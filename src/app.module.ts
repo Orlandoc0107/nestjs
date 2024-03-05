@@ -3,10 +3,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from './config/config.module';
 import { ConfigService } from './config/config.service';
-import { Configurtion } from './config/config.keys';
+import { Configuration } from './config/config.keys';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
-  imports: [ConfigModule],
+  imports: [ConfigModule, DatabaseModule],
   controllers: [AppController],
   providers: [AppService],
 })
@@ -14,6 +15,6 @@ export class AppModule {
   static port: number | string;
   
   constructor(private readonly _configService:ConfigService){
-    AppModule.port = this._configService.get(Configurtion.PORT)
+    AppModule.port = this._configService.get(Configuration.PORT)
   }
 }
