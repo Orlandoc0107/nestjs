@@ -12,3 +12,5 @@ docker run -d -p 5444:5432 --name mi-postgres -e POSTGRES_PASSWORD postgres
 npm i @nestjs/typeorm typeorm pg
 
 nest g module database
+
+nest g mo modules/user
